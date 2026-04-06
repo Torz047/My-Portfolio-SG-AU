@@ -5,39 +5,37 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Christopher John Dela Peña — Operations & Technology Professional</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Cabinet+Grotesk:wght@300;400;500;700;800;900&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,700;12..96,800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
 <style>
 /* ── RESET & ROOT ── */
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#06090f;
-  --surface:#0d1320;
-  --surface2:#111827;
-  --border:#1e2d45;
-  --border2:#243350;
+  --bg:#f5f7fa;
+  --surface:#ffffff;
+  --surface2:#f0f4f8;
+  --border:#dce4ee;
+  --border2:#c5d3e0;
 
-  --teal:#00d4b8;
-  --teal2:#00ffde;
-  --teal-dim:rgba(0,212,184,0.12);
-  --teal-glow:rgba(0,212,184,0.25);
+  --blue:#185FA5;
+  --blue2:#1a74c4;
+  --blue-dim:rgba(24,95,165,0.08);
+  --blue-glow:rgba(24,95,165,0.18);
 
-  --amber:#f59e0b;
-  --amber2:#fbbf24;
-  --amber-dim:rgba(245,158,11,0.12);
+  --amber:#c07c0a;
+  --amber2:#d4890f;
+  --amber-dim:rgba(192,124,10,0.09);
 
-  --text:#e8f0fe;
-  --text2:#94a3b8;
-  --text3:#4a5568;
+  --text:#1e293b;
+  --text2:#4a6080;
+  --text3:#8fa3b8;
   --white:#ffffff;
 
-  --red:#ff4d6d;
-  --green:#00e5a0;
-  --blue:#3b9eff;
+  --red:#dc2626;
+  --green:#0d7a55;
+  --accent:#185FA5;
 
   --font-display:'Bricolage Grotesque',sans-serif;
   --font-body:'DM Sans',sans-serif;
-  --font-mono:'DM Mono',monospace;
 }
 
 html{scroll-behavior:smooth}
@@ -52,106 +50,88 @@ body{
 /* ── CUSTOM CURSOR ── */
 .cursor{
   width:10px;height:10px;
-  background:var(--teal);
+  background:var(--blue);
   border-radius:50%;
-  position:fixed;
-  top:0;left:0;
-  pointer-events:none;
-  z-index:9999;
-  transition:transform 0.15s ease, background 0.2s;
+  position:fixed;top:0;left:0;
+  pointer-events:none;z-index:9999;
+  transition:transform 0.15s ease,background 0.2s;
   transform:translate(-50%,-50%);
 }
 .cursor-ring{
   width:36px;height:36px;
-  border:1.5px solid rgba(0,212,184,0.5);
+  border:1.5px solid rgba(24,95,165,0.4);
   border-radius:50%;
-  position:fixed;
-  top:0;left:0;
-  pointer-events:none;
-  z-index:9998;
-  transition:transform 0.35s cubic-bezier(.23,1,.32,1), width 0.3s, height 0.3s, border-color 0.3s;
+  position:fixed;top:0;left:0;
+  pointer-events:none;z-index:9998;
+  transition:transform 0.35s cubic-bezier(.23,1,.32,1),width 0.3s,height 0.3s,border-color 0.3s;
   transform:translate(-50%,-50%);
 }
 
-/* ── NOISE OVERLAY ── */
+/* ── SUBTLE PATTERN ── */
 body::before{
   content:'';
   position:fixed;inset:0;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-  opacity:0.35;
-  pointer-events:none;
-  z-index:1;
+  background-image:radial-gradient(circle at 1px 1px, rgba(24,95,165,0.06) 1px, transparent 0);
+  background-size:28px 28px;
+  pointer-events:none;z-index:0;opacity:1;
 }
 
-/* ── GRADIENT BG ORBS ── */
+/* ── SOFT BG ORBS ── */
 .orb{
-  position:fixed;
-  border-radius:50%;
-  filter:blur(120px);
-  pointer-events:none;
-  z-index:0;
-  opacity:0.18;
+  position:fixed;border-radius:50%;
+  filter:blur(140px);pointer-events:none;z-index:0;
 }
-.orb-1{width:600px;height:600px;background:var(--teal);top:-200px;left:-200px;animation:drift1 18s ease-in-out infinite alternate;}
-.orb-2{width:500px;height:500px;background:#1a6bff;bottom:-100px;right:-150px;animation:drift2 22s ease-in-out infinite alternate;}
-.orb-3{width:300px;height:300px;background:var(--amber);top:40%;left:60%;animation:drift3 15s ease-in-out infinite alternate;}
-@keyframes drift1{to{transform:translate(80px,60px)}}
-@keyframes drift2{to{transform:translate(-60px,-80px)}}
-@keyframes drift3{to{transform:translate(-40px,50px)}}
+.orb-1{width:700px;height:700px;background:#dbeafe;top:-200px;left:-200px;opacity:0.6;animation:drift1 20s ease-in-out infinite alternate;}
+.orb-2{width:500px;height:500px;background:#e0f2fe;bottom:-100px;right:-150px;opacity:0.5;animation:drift2 25s ease-in-out infinite alternate;}
+.orb-3{width:300px;height:300px;background:#fef3c7;top:45%;left:55%;opacity:0.3;animation:drift3 18s ease-in-out infinite alternate;}
+@keyframes drift1{to{transform:translate(60px,50px)}}
+@keyframes drift2{to{transform:translate(-50px,-60px)}}
+@keyframes drift3{to{transform:translate(-30px,40px)}}
 
 /* ── NAV ── */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
   padding:0 48px;height:64px;
   display:flex;align-items:center;justify-content:space-between;
-  background:rgba(6,9,15,0.8);
+  background:rgba(245,247,250,0.88);
   backdrop-filter:blur(20px);
   border-bottom:1px solid var(--border);
 }
 .nav-logo{
-  font-family:var(--font-display);
-  font-weight:800;font-size:18px;
-  color:var(--white);
-  letter-spacing:-0.5px;
+  font-family:var(--font-display);font-weight:800;font-size:18px;
+  color:var(--text);letter-spacing:-0.5px;
   display:flex;align-items:center;gap:10px;
 }
 .nav-logo-dot{
-  width:8px;height:8px;
-  background:var(--teal);
+  width:8px;height:8px;background:var(--blue);
   border-radius:50%;
-  box-shadow:0 0 12px var(--teal);
   animation:blink 2.5s ease-in-out infinite;
 }
-@keyframes blink{0%,100%{opacity:1;box-shadow:0 0 12px var(--teal)}50%{opacity:0.4;box-shadow:0 0 4px var(--teal)}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.35}}
 .nav-links{display:flex;gap:32px;list-style:none;align-items:center}
 .nav-links a{
   color:var(--text2);text-decoration:none;
   font-size:12px;letter-spacing:1.5px;text-transform:uppercase;
-  font-weight:500;
-  transition:color 0.2s;
-  position:relative;
+  font-weight:500;transition:color 0.2s;position:relative;
 }
 .nav-links a::after{
   content:'';position:absolute;bottom:-4px;left:0;right:0;
-  height:1px;background:var(--teal);
+  height:1.5px;background:var(--blue);
   transform:scaleX(0);transition:transform 0.2s;
 }
-.nav-links a:hover{color:var(--teal)}
+.nav-links a:hover{color:var(--blue)}
 .nav-links a:hover::after{transform:scaleX(1)}
 .nav-cta{
   display:flex;align-items:center;gap:8px;
   padding:9px 22px;
-  background:var(--teal);
-  color:#000;
+  background:var(--blue);color:#fff;
   border-radius:6px;
-  font-family:var(--font-display);
-  font-weight:700;font-size:12px;
-  letter-spacing:0.5px;
-  text-decoration:none;
+  font-family:var(--font-display);font-weight:700;font-size:12px;
+  letter-spacing:0.5px;text-decoration:none;
   transition:all 0.2s;
-  box-shadow:0 0 20px rgba(0,212,184,0.3);
+  box-shadow:0 2px 12px rgba(24,95,165,0.25);
 }
-.nav-cta:hover{background:var(--teal2);box-shadow:0 0 30px rgba(0,212,184,0.5);transform:translateY(-1px)}
+.nav-cta:hover{background:var(--blue2);box-shadow:0 4px 20px rgba(24,95,165,0.35);transform:translateY(-1px)}
 
 /* ── HERO ── */
 .hero{
@@ -161,15 +141,12 @@ nav{
   max-width:1300px;margin:0 auto;
   position:relative;z-index:2;
 }
-.hero-top{
-  display:flex;align-items:center;gap:16px;
-  margin-bottom:40px;
-}
+.hero-top{display:flex;align-items:center;gap:16px;margin-bottom:40px;}
 .hero-available{
   display:inline-flex;align-items:center;gap:8px;
   padding:6px 16px;
-  background:rgba(0,229,160,0.1);
-  border:1px solid rgba(0,229,160,0.3);
+  background:rgba(13,122,85,0.08);
+  border:1px solid rgba(13,122,85,0.25);
   border-radius:20px;
   font-size:11px;letter-spacing:1.5px;text-transform:uppercase;
   color:var(--green);font-weight:600;
@@ -177,118 +154,83 @@ nav{
 .hero-available::before{
   content:'';width:7px;height:7px;
   background:var(--green);border-radius:50%;
-  box-shadow:0 0 8px var(--green);
   animation:blink 2s ease-in-out infinite;
 }
 .hero-flags{display:flex;gap:6px;align-items:center}
 .flag{
-  font-size:18px;
-  padding:4px 10px;
+  font-size:18px;padding:4px 10px;
   background:var(--surface);
   border:1px solid var(--border);
-  border-radius:6px;
-  line-height:1;
+  border-radius:6px;line-height:1;
 }
-
 .hero-eyebrow{
-  font-family:var(--font-body);
-  font-size:13px;color:var(--teal);
-  letter-spacing:3px;text-transform:uppercase;
-  font-weight:500;margin-bottom:20px;
-  display:flex;align-items:center;gap:12px;
+  font-family:var(--font-body);font-size:13px;color:var(--blue);
+  letter-spacing:3px;text-transform:uppercase;font-weight:500;
+  margin-bottom:20px;display:flex;align-items:center;gap:12px;
 }
-.hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--teal);}
+.hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--blue);}
 
 h1{
   font-family:var(--font-display);
   font-size:clamp(52px,8vw,112px);
-  font-weight:800;
-  line-height:0.92;
-  letter-spacing:-4px;
-  margin-bottom:24px;
-  color:var(--white);
+  font-weight:800;line-height:0.92;letter-spacing:-4px;
+  margin-bottom:24px;color:var(--text);
 }
 h1 .line2{
-  display:block;
-  color:transparent;
-  -webkit-text-stroke:1.5px rgba(255,255,255,0.3);
-  position:relative;
+  display:block;color:transparent;
+  -webkit-text-stroke:1.5px rgba(30,41,59,0.22);
 }
 h1 .accent{
-  color:var(--teal);
-  font-style:italic;
-  font-family:'DM Sans',sans-serif;
-  font-weight:300;
+  color:var(--blue);font-style:italic;
+  font-family:'DM Sans',sans-serif;font-weight:300;
   -webkit-text-stroke:0;
 }
 
-.hero-descriptor{
-  display:flex;flex-wrap:wrap;gap:8px;
-  margin-bottom:32px;
-}
+.hero-descriptor{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px;}
 .descriptor-pill{
-  padding:6px 16px;
-  border:1px solid var(--border2);
-  border-radius:20px;
-  font-size:12px;color:var(--text2);
-  font-weight:400;
-  background:var(--surface);
-  transition:all 0.2s;
+  padding:6px 16px;border:1px solid var(--border2);
+  border-radius:20px;font-size:12px;color:var(--text2);
+  font-weight:400;background:var(--surface);transition:all 0.2s;
 }
-.descriptor-pill:hover{border-color:var(--teal);color:var(--teal)}
+.descriptor-pill:hover{border-color:var(--blue);color:var(--blue)}
 .descriptor-pill.hl{
-  background:var(--teal-dim);
-  border-color:rgba(0,212,184,0.4);
-  color:var(--teal);font-weight:500;
+  background:var(--blue-dim);
+  border-color:rgba(24,95,165,0.3);
+  color:var(--blue);font-weight:500;
 }
 
 .hero-pitch{
-  max-width:680px;
-  margin-bottom:48px;
+  max-width:680px;margin-bottom:48px;
   padding:28px 32px;
   background:var(--surface);
   border:1px solid var(--border);
-  border-left:3px solid var(--teal);
+  border-left:3px solid var(--blue);
   border-radius:0 12px 12px 0;
-  position:relative;
-  overflow:hidden;
+  position:relative;overflow:hidden;
 }
 .hero-pitch::before{
-  content:'';
-  position:absolute;top:0;left:0;right:0;bottom:0;
-  background:linear-gradient(135deg,rgba(0,212,184,0.04),transparent 60%);
+  content:'';position:absolute;top:0;left:0;right:0;bottom:0;
+  background:linear-gradient(135deg,rgba(24,95,165,0.03),transparent 60%);
   pointer-events:none;
 }
-.hero-pitch p{
-  font-size:15px;color:var(--text);line-height:1.85;
-  font-weight:300;margin-bottom:14px;
-}
+.hero-pitch p{font-size:15px;color:var(--text);line-height:1.85;font-weight:300;margin-bottom:14px;}
 .hero-pitch p:last-child{margin-bottom:0;color:var(--text2);font-size:13px}
-.hero-pitch strong{color:var(--teal);font-weight:600}
+.hero-pitch strong{color:var(--blue);font-weight:600}
 
 .hero-stats{
-  display:flex;gap:0;
-  margin-bottom:48px;
-  border:1px solid var(--border);
-  border-radius:12px;
-  overflow:hidden;
-  width:fit-content;
-  background:var(--surface);
+  display:flex;gap:0;margin-bottom:48px;
+  border:1px solid var(--border);border-radius:12px;
+  overflow:hidden;width:fit-content;background:var(--surface);
 }
 .stat{
-  padding:22px 36px;
-  border-right:1px solid var(--border);
-  text-align:center;
-  position:relative;
-  transition:background 0.2s;
+  padding:22px 36px;border-right:1px solid var(--border);
+  text-align:center;transition:background 0.2s;
 }
 .stat:last-child{border-right:none}
 .stat:hover{background:var(--surface2)}
 .stat-num{
-  font-family:var(--font-display);
-  font-size:36px;font-weight:800;
-  color:var(--teal);line-height:1;
-  text-shadow:0 0 20px rgba(0,212,184,0.4);
+  font-family:var(--font-display);font-size:36px;font-weight:800;
+  color:var(--blue);line-height:1;
 }
 .stat-label{font-size:9px;color:var(--text3);letter-spacing:2px;text-transform:uppercase;margin-top:6px}
 
@@ -301,76 +243,66 @@ h1 .accent{
   transition:all 0.2s;border:none;cursor:none;
 }
 .btn svg{width:15px;height:15px;fill:currentColor;flex-shrink:0}
-.btn-teal{
-  background:var(--teal);color:#000;
-  box-shadow:0 4px 24px rgba(0,212,184,0.35);
+.btn-primary{
+  background:var(--blue);color:#fff;
+  box-shadow:0 4px 16px rgba(24,95,165,0.28);
 }
-.btn-teal:hover{background:var(--teal2);box-shadow:0 8px 32px rgba(0,212,184,0.5);transform:translateY(-2px)}
+.btn-primary:hover{background:var(--blue2);box-shadow:0 8px 24px rgba(24,95,165,0.38);transform:translateY(-2px)}
 .btn-outline{
   background:transparent;color:var(--text);
   border:1px solid var(--border2);
 }
-.btn-outline:hover{border-color:var(--teal);color:var(--teal);transform:translateY(-1px)}
+.btn-outline:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-1px)}
 .btn-amber{
   background:var(--amber-dim);color:var(--amber2);
-  border:1px solid rgba(245,158,11,0.3);
+  border:1px solid rgba(192,124,10,0.25);
 }
-.btn-amber:hover{background:rgba(245,158,11,0.2);transform:translateY(-2px)}
+.btn-amber:hover{background:rgba(192,124,10,0.15);transform:translateY(-2px)}
 .btn-ghost{
   background:var(--surface);color:var(--text2);
   border:1px solid var(--border);
 }
-.btn-ghost:hover{border-color:var(--teal);color:var(--teal);transform:translateY(-1px)}
+.btn-ghost:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-1px)}
 .btn:disabled{opacity:0.6;cursor:not-allowed;transform:none !important}
 
 /* ── SECTION BASE ── */
 section{
-  padding:110px 48px;
-  max-width:1300px;margin:0 auto;
+  padding:110px 48px;max-width:1300px;margin:0 auto;
   position:relative;z-index:2;
 }
 .section-eyebrow{
   font-size:10px;letter-spacing:3px;text-transform:uppercase;
-  color:var(--teal);font-weight:600;
-  display:flex;align-items:center;gap:10px;
-  margin-bottom:12px;
+  color:var(--blue);font-weight:600;
+  display:flex;align-items:center;gap:10px;margin-bottom:12px;
 }
-.section-eyebrow::before{content:'';width:28px;height:1px;background:var(--teal);}
+.section-eyebrow::before{content:'';width:28px;height:1px;background:var(--blue);}
 .section-title{
   font-family:var(--font-display);
   font-size:clamp(32px,4vw,56px);
   font-weight:800;letter-spacing:-2px;
-  margin-bottom:60px;line-height:1;
-  color:var(--white);
+  margin-bottom:60px;line-height:1;color:var(--text);
 }
-.section-title span{color:var(--teal)}
+.section-title span{color:var(--blue)}
 .section-divider{
   height:1px;
   background:linear-gradient(90deg,transparent,var(--border),transparent);
   position:relative;z-index:2;
-  margin:0;
 }
 
-/* ── VALUE PROP BAND ── */
+/* ── VALUE BAND ── */
 .value-band{
   background:var(--surface);
-  border-top:1px solid var(--border);
-  border-bottom:1px solid var(--border);
-  padding:32px 48px;
-  position:relative;z-index:2;
-  overflow:hidden;
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:32px 48px;position:relative;z-index:2;
 }
 .value-band-inner{
   max-width:1300px;margin:0 auto;
   display:flex;align-items:center;gap:48px;flex-wrap:wrap;
 }
-.value-item{
-  display:flex;align-items:center;gap:14px;
-  flex:1;min-width:200px;
-}
+.value-item{display:flex;align-items:center;gap:14px;flex:1;min-width:200px;}
 .value-icon{
   width:40px;height:40px;border-radius:10px;
-  background:var(--teal-dim);border:1px solid rgba(0,212,184,0.2);
+  background:var(--blue-dim);border:1px solid rgba(24,95,165,0.15);
   display:flex;align-items:center;justify-content:center;
   font-size:18px;flex-shrink:0;
 }
@@ -378,137 +310,84 @@ section{
 .value-text strong{display:block;color:var(--text);font-size:13px;margin-bottom:2px}
 
 /* ── DUAL EXPERTISE ── */
-.dual-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
-  margin-bottom:52px;
-}
+.dual-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:52px;}
 .dual-card{
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:16px;
-  padding:36px;
-  position:relative;
-  overflow:hidden;
-  transition:all 0.25s;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:16px;padding:36px;
+  position:relative;overflow:hidden;transition:all 0.25s;
 }
 .dual-card::before{
-  content:'';
-  position:absolute;top:0;left:0;right:0;height:2px;
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
   transition:opacity 0.25s;
 }
-.dual-card.ops::before{background:linear-gradient(90deg,var(--amber),#ff9500)}
-.dual-card.dev::before{background:linear-gradient(90deg,var(--teal),var(--blue))}
-.dual-card:hover{border-color:var(--border2);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,0.4)}
+.dual-card.ops::before{background:linear-gradient(90deg,#d97706,#f59e0b)}
+.dual-card.dev::before{background:linear-gradient(90deg,var(--blue),#3b9eff)}
+.dual-card:hover{border-color:var(--border2);transform:translateY(-4px);box-shadow:0 16px 48px rgba(24,95,165,0.10)}
 .dual-card-badge{
   display:inline-flex;align-items:center;gap:6px;
   padding:5px 14px;border-radius:20px;
   font-size:10px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;
   margin-bottom:20px;
 }
-.badge-ops{background:rgba(245,158,11,0.12);color:var(--amber2);border:1px solid rgba(245,158,11,0.25)}
-.badge-dev{background:var(--teal-dim);color:var(--teal);border:1px solid rgba(0,212,184,0.25)}
+.badge-ops{background:rgba(192,124,10,0.1);color:#92560a;border:1px solid rgba(192,124,10,0.22)}
+.badge-dev{background:var(--blue-dim);color:var(--blue);border:1px solid rgba(24,95,165,0.2)}
 .dual-card h3{
-  font-family:var(--font-display);
-  font-size:22px;font-weight:800;
-  letter-spacing:-0.5px;
-  color:var(--white);margin-bottom:14px;
+  font-family:var(--font-display);font-size:22px;font-weight:800;
+  letter-spacing:-0.5px;color:var(--text);margin-bottom:14px;
 }
 .dual-card p{font-size:13px;color:var(--text2);line-height:1.8;margin-bottom:20px}
 .dual-skills{display:flex;flex-wrap:wrap;gap:7px}
 .skill-tag{
-  padding:5px 13px;border-radius:6px;
-  font-size:11px;font-weight:500;
-  background:rgba(255,255,255,0.04);
-  border:1px solid var(--border);
-  color:var(--text2);
-  transition:all 0.15s;
+  padding:5px 13px;border-radius:6px;font-size:11px;font-weight:500;
+  background:var(--surface2);border:1px solid var(--border);
+  color:var(--text2);transition:all 0.15s;
 }
-.skill-tag:hover{border-color:var(--teal);color:var(--teal)}
+.skill-tag:hover{border-color:var(--blue);color:var(--blue)}
 
 /* ── SKILLS GRID ── */
-.skills-bento{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:14px;
-}
+.skills-bento{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
 .skill-card{
-  background:var(--surface);
-  border:1px solid var(--border);
+  background:var(--surface);border:1px solid var(--border);
   border-radius:14px;padding:26px;
-  transition:all 0.22s;
-  position:relative;overflow:hidden;
+  transition:all 0.22s;position:relative;overflow:hidden;
 }
-.skill-card:hover{border-color:var(--teal-glow);transform:translateY(-3px);box-shadow:0 16px 48px rgba(0,0,0,0.35)}
+.skill-card:hover{border-color:var(--blue-glow);transform:translateY(-3px);box-shadow:0 12px 36px rgba(24,95,165,0.10)}
 .skill-card::after{
-  content:'';
-  position:absolute;bottom:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,var(--teal),var(--blue));
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--blue),#3b9eff);
   opacity:0;transition:opacity 0.22s;
 }
 .skill-card:hover::after{opacity:1}
 .skill-icon{font-size:24px;margin-bottom:14px}
-.skill-name{
-  font-family:var(--font-display);
-  font-weight:700;font-size:14px;
-  margin-bottom:8px;color:var(--white);
-}
+.skill-name{font-family:var(--font-display);font-weight:700;font-size:14px;margin-bottom:8px;color:var(--text);}
 .skill-desc{font-size:11px;color:var(--text2);line-height:1.8}
 
 /* ── EXPERIENCE ── */
 .exp-timeline{display:flex;flex-direction:column;gap:0}
-.exp-item{
-  display:grid;
-  grid-template-columns:280px 1fr;
-  gap:0;
-  position:relative;
-}
+.exp-item{display:grid;grid-template-columns:280px 1fr;gap:0;position:relative;}
 .exp-item::before{
-  content:'';
-  position:absolute;
-  left:279px;top:0;bottom:0;
+  content:'';position:absolute;left:279px;top:0;bottom:0;
   width:1px;background:var(--border);
 }
-.exp-left{
-  padding:40px 40px 40px 0;
-  position:relative;
-}
+.exp-left{padding:40px 40px 40px 0;position:relative;}
 .exp-left::after{
-  content:'';
-  position:absolute;right:-5px;top:44px;
-  width:9px;height:9px;
-  background:var(--teal);border-radius:50%;
-  box-shadow:0 0 12px var(--teal);
+  content:'';position:absolute;right:-5px;top:44px;
+  width:9px;height:9px;background:var(--blue);border-radius:50%;
+  box-shadow:0 0 0 3px rgba(24,95,165,0.15);
 }
-.exp-right{
-  padding:40px 0 40px 48px;
-  border-bottom:1px solid var(--border);
-}
+.exp-right{padding:40px 0 40px 48px;border-bottom:1px solid var(--border);}
 .exp-item:last-child .exp-right{border-bottom:none}
-.exp-period{
-  font-size:11px;color:var(--teal);
-  letter-spacing:1px;font-weight:600;
-  margin-bottom:6px;
-  font-family:var(--font-body);
-}
-.exp-company{
-  font-size:12px;color:var(--text2);
-  margin-bottom:12px;line-height:1.5;
-}
+.exp-period{font-size:11px;color:var(--blue);letter-spacing:1px;font-weight:600;margin-bottom:6px;}
+.exp-company{font-size:12px;color:var(--text2);margin-bottom:12px;line-height:1.5;}
 .exp-badge{
   display:inline-flex;padding:4px 12px;
-  background:rgba(0,229,160,0.1);
-  border:1px solid rgba(0,229,160,0.25);
-  border-radius:20px;font-size:9px;
-  letter-spacing:1px;text-transform:uppercase;
+  background:rgba(13,122,85,0.08);border:1px solid rgba(13,122,85,0.2);
+  border-radius:20px;font-size:9px;letter-spacing:1px;text-transform:uppercase;
   color:var(--green);font-weight:700;
 }
 .exp-role{
-  font-family:var(--font-display);
-  font-weight:800;font-size:22px;
-  margin-bottom:18px;color:var(--white);
-  letter-spacing:-0.5px;
+  font-family:var(--font-display);font-weight:800;font-size:22px;
+  margin-bottom:18px;color:var(--text);letter-spacing:-0.5px;
 }
 .exp-bullets{list-style:none;display:flex;flex-direction:column;gap:10px}
 .exp-bullets li{
@@ -516,58 +395,44 @@ section{
   padding-left:20px;position:relative;line-height:1.7;
 }
 .exp-bullets li::before{
-  content:'▸';
-  position:absolute;left:0;
-  color:var(--teal);font-size:10px;top:3px;
+  content:'▸';position:absolute;left:0;
+  color:var(--blue);font-size:10px;top:3px;
 }
 .exp-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
 .exp-tag{
-  padding:3px 11px;border-radius:4px;
-  font-size:10px;letter-spacing:0.5px;
-  background:rgba(255,255,255,0.04);
-  border:1px solid var(--border);
+  padding:3px 11px;border-radius:4px;font-size:10px;letter-spacing:0.5px;
+  background:var(--surface2);border:1px solid var(--border);
   color:var(--text3);
 }
 
 /* ── PROJECTS ── */
-.projects-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(360px,1fr));
-  gap:20px;
-}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:20px;}
 .project-card{
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:16px;overflow:hidden;
-  transition:all 0.25s;
-  display:flex;flex-direction:column;
-  position:relative;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:16px;overflow:hidden;transition:all 0.25s;
+  display:flex;flex-direction:column;position:relative;
 }
 .project-card:hover{
   transform:translateY(-6px);
-  box-shadow:0 24px 64px rgba(0,0,0,0.5);
+  box-shadow:0 20px 56px rgba(24,95,165,0.12);
   border-color:var(--border2);
 }
 .project-card.hero-project{
-  border-color:rgba(0,212,184,0.3);
-  background:linear-gradient(135deg,var(--surface),rgba(0,212,184,0.04));
+  border-color:rgba(24,95,165,0.25);
+  background:linear-gradient(135deg,#fff,rgba(24,95,165,0.03));
 }
-.project-card.hero-project:hover{border-color:var(--teal)}
+.project-card.hero-project:hover{border-color:var(--blue)}
 .project-banner{
-  padding:8px 20px;font-size:9px;
-  font-weight:700;letter-spacing:2px;text-transform:uppercase;
-  text-align:center;
+  padding:8px 20px;font-size:9px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;text-align:center;
 }
-.banner-teal{background:var(--teal);color:#000}
-.banner-amber{background:linear-gradient(90deg,#d97706,var(--amber));color:#000}
-.banner-blue{background:linear-gradient(90deg,#1d4ed8,var(--blue));color:#fff}
+.banner-blue{background:var(--blue);color:#fff}
+.banner-amber{background:linear-gradient(90deg,#b45309,#d97706);color:#fff}
 .project-body{padding:28px;flex:1}
 .project-emoji{font-size:32px;margin-bottom:16px}
 .project-name{
-  font-family:var(--font-display);
-  font-weight:800;font-size:20px;
-  margin-bottom:10px;color:var(--white);
-  letter-spacing:-0.5px;
+  font-family:var(--font-display);font-weight:800;font-size:20px;
+  margin-bottom:10px;color:var(--text);letter-spacing:-0.5px;
 }
 .ps-block{display:flex;flex-direction:column;gap:10px;margin-bottom:18px}
 .ps-row{display:flex;gap:10px;align-items:flex-start}
@@ -577,165 +442,110 @@ section{
   padding:3px 10px;border-radius:20px;
   white-space:nowrap;flex-shrink:0;margin-top:1px;
 }
-.ps-problem{background:rgba(255,77,109,0.1);color:#ff4d6d;border:1px solid rgba(255,77,109,0.2)}
-.ps-solution{background:rgba(0,229,160,0.1);color:var(--green);border:1px solid rgba(0,229,160,0.2)}
+.ps-problem{background:rgba(220,38,38,0.08);color:#b91c1c;border:1px solid rgba(220,38,38,0.18)}
+.ps-solution{background:rgba(13,122,85,0.08);color:#0d7a55;border:1px solid rgba(13,122,85,0.18)}
 .ps-text{font-size:12px;color:var(--text2);line-height:1.8}
 .project-tags{display:flex;flex-wrap:wrap;gap:6px}
-.ptag{
-  padding:4px 11px;border-radius:20px;
-  font-size:9px;letter-spacing:1px;text-transform:uppercase;font-weight:600;
-}
-.ptag-teal{background:var(--teal-dim);color:var(--teal);border:1px solid rgba(0,212,184,0.2)}
-.ptag-amber{background:var(--amber-dim);color:var(--amber2);border:1px solid rgba(245,158,11,0.2)}
-.ptag-blue{background:rgba(59,158,255,0.1);color:var(--blue);border:1px solid rgba(59,158,255,0.2)}
-.ptag-green{background:rgba(0,229,160,0.1);color:var(--green);border:1px solid rgba(0,229,160,0.2)}
+.ptag{padding:4px 11px;border-radius:20px;font-size:9px;letter-spacing:1px;text-transform:uppercase;font-weight:600;}
+.ptag-blue{background:var(--blue-dim);color:var(--blue);border:1px solid rgba(24,95,165,0.2)}
+.ptag-amber{background:var(--amber-dim);color:#92560a;border:1px solid rgba(192,124,10,0.2)}
+.ptag-green{background:rgba(13,122,85,0.08);color:#0d7a55;border:1px solid rgba(13,122,85,0.18)}
 .project-footer{
-  padding:18px 28px;
-  border-top:1px solid var(--border);
+  padding:18px 28px;border-top:1px solid var(--border);
   display:flex;align-items:center;justify-content:space-between;
-  background:rgba(0,0,0,0.2);
+  background:var(--surface2);
 }
 .project-link{
   display:inline-flex;align-items:center;gap:6px;
-  color:var(--teal);text-decoration:none;
+  color:var(--blue);text-decoration:none;
   font-size:12px;font-weight:700;letter-spacing:0.3px;
   transition:gap 0.2s;
 }
 .project-link:hover{gap:10px}
 .new-badge{
-  padding:4px 12px;
-  border-radius:20px;font-size:9px;
-  letter-spacing:1px;text-transform:uppercase;font-weight:700;
+  padding:4px 12px;border-radius:20px;
+  font-size:9px;letter-spacing:1px;text-transform:uppercase;font-weight:700;
 }
-.nb-teal{background:var(--teal);color:#000}
-.nb-amber{background:linear-gradient(90deg,#d97706,var(--amber));color:#000}
+.nb-blue{background:var(--blue);color:#fff}
+.nb-amber{background:linear-gradient(90deg,#b45309,#d97706);color:#fff}
 
-/* ── WHY HIRE ME ── */
-.why-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:16px;
-  margin-bottom:40px;
-}
+/* ── WHY HIRE ── */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:40px;}
 .why-card{
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:14px;padding:28px;
-  transition:all 0.22s;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:14px;padding:28px;transition:all 0.22s;
 }
-.why-card:hover{border-color:var(--teal);transform:translateY(-3px)}
+.why-card:hover{border-color:var(--blue);transform:translateY(-3px);box-shadow:0 8px 24px rgba(24,95,165,0.08)}
 .why-num{
-  font-family:var(--font-display);
-  font-size:42px;font-weight:800;
-  color:transparent;
-  -webkit-text-stroke:1px var(--teal);
+  font-family:var(--font-display);font-size:42px;font-weight:800;
+  color:transparent;-webkit-text-stroke:1px rgba(24,95,165,0.3);
   line-height:1;margin-bottom:14px;
-  opacity:0.5;
 }
-.why-title{
-  font-family:var(--font-display);
-  font-weight:700;font-size:15px;
-  color:var(--white);margin-bottom:8px;
-}
+.why-title{font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--text);margin-bottom:8px;}
 .why-desc{font-size:12px;color:var(--text2);line-height:1.8}
 
 /* ── EDUCATION ── */
-.edu-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
-  gap:20px;
-}
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;}
 .edu-card{
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:14px;padding:30px;
-  transition:all 0.2s;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:14px;padding:30px;transition:all 0.2s;
 }
 .edu-card:hover{border-color:var(--border2)}
-.edu-school{
-  font-family:var(--font-display);
-  font-weight:800;font-size:16px;
-  margin-bottom:8px;color:var(--white);
-}
+.edu-school{font-family:var(--font-display);font-weight:800;font-size:16px;margin-bottom:8px;color:var(--text);}
 .edu-degree{font-size:13px;color:var(--text2);margin-bottom:14px;line-height:1.7}
-.edu-period{font-size:10px;color:var(--teal);letter-spacing:1px;font-weight:600}
+.edu-period{font-size:10px;color:var(--blue);letter-spacing:1px;font-weight:600}
 .edu-badges{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
 .edu-badge{
   padding:5px 14px;
-  background:var(--amber-dim);
-  border:1px solid rgba(245,158,11,0.25);
-  border-radius:20px;font-size:10px;
-  color:var(--amber2);font-weight:600;
+  background:var(--amber-dim);border:1px solid rgba(192,124,10,0.22);
+  border-radius:20px;font-size:10px;color:#92560a;font-weight:600;
 }
 
 /* ── CONTACT ── */
-.contact-layout{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:48px;
-  align-items:start;
-}
+.contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;}
 .contact-intro h3{
-  font-family:var(--font-display);
-  font-size:36px;font-weight:800;
-  letter-spacing:-1px;color:var(--white);
-  margin-bottom:16px;line-height:1.1;
+  font-family:var(--font-display);font-size:36px;font-weight:800;
+  letter-spacing:-1px;color:var(--text);margin-bottom:16px;line-height:1.1;
 }
-.contact-intro p{
-  font-size:14px;color:var(--text2);
-  line-height:1.8;margin-bottom:24px;
-}
+.contact-intro p{font-size:14px;color:var(--text2);line-height:1.8;margin-bottom:24px;}
 .availability-box{
   padding:20px 24px;
-  background:rgba(0,229,160,0.07);
-  border:1px solid rgba(0,229,160,0.2);
-  border-radius:12px;
-  font-size:13px;color:var(--green);
-  font-weight:500;
+  background:rgba(13,122,85,0.06);border:1px solid rgba(13,122,85,0.18);
+  border-radius:12px;font-size:13px;color:#0d7a55;font-weight:500;
 }
 .availability-box strong{display:block;font-size:11px;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;opacity:0.7}
 .contact-cards{display:flex;flex-direction:column;gap:12px}
 .contact-card{
-  background:var(--surface);
-  border:1px solid var(--border);
+  background:var(--surface);border:1px solid var(--border);
   border-radius:12px;padding:18px 22px;
   display:flex;align-items:center;gap:16px;
-  text-decoration:none;color:var(--text);
-  transition:all 0.2s;
+  text-decoration:none;color:var(--text);transition:all 0.2s;
 }
-.contact-card:hover{border-color:var(--teal);transform:translateX(4px)}
-.contact-card.wa{border-color:rgba(37,211,102,0.2);background:rgba(37,211,102,0.04)}
+.contact-card:hover{border-color:var(--blue);transform:translateX(4px);box-shadow:0 4px 16px rgba(24,95,165,0.08)}
+.contact-card.wa{border-color:rgba(37,211,102,0.2);background:rgba(37,211,102,0.03)}
 .contact-card.wa:hover{border-color:#25D366}
-.contact-card.li{border-color:rgba(59,158,255,0.2);background:rgba(59,158,255,0.04)}
+.contact-card.li{border-color:rgba(24,95,165,0.18);background:rgba(24,95,165,0.03)}
 .contact-card.li:hover{border-color:var(--blue)}
-.contact-card.viber{border-color:rgba(115,96,242,0.2);background:rgba(115,96,242,0.04)}
-.contact-card.viber:hover{border-color:#7360f2}
 .cc-icon{
   width:42px;height:42px;border-radius:10px;
   display:flex;align-items:center;justify-content:center;
   font-size:18px;flex-shrink:0;
-  background:rgba(255,255,255,0.04);
-  border:1px solid var(--border);
+  background:var(--surface2);border:1px solid var(--border);
 }
 .cc-label{font-size:9px;color:var(--text3);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:3px}
 .cc-value{font-size:13px;font-weight:600;color:var(--text)}
 
 /* ── FOOTER ── */
 footer{
-  padding:40px 48px;
-  text-align:center;
-  color:var(--text3);
-  font-size:11px;letter-spacing:1px;
+  padding:40px 48px;text-align:center;
+  color:var(--text3);font-size:11px;letter-spacing:1px;
   position:relative;z-index:2;
   border-top:1px solid var(--border);
+  background:var(--surface);
 }
 
 /* ── SCROLL ANIMATIONS ── */
-.reveal{
-  opacity:0;
-  transform:translateY(28px);
-  transition:opacity 0.7s cubic-bezier(.23,1,.32,1), transform 0.7s cubic-bezier(.23,1,.32,1);
-}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s cubic-bezier(.23,1,.32,1),transform 0.7s cubic-bezier(.23,1,.32,1);}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
 /* ── RESPONSIVE ── */
@@ -757,9 +567,7 @@ footer{
   .hero-stats{width:100%}.stat{padding:16px 20px;flex:1}
   .value-band{padding:24px 20px}
 }
-@media(max-width:600px){
-  .skills-bento{grid-template-columns:1fr}
-}
+@media(max-width:600px){.skills-bento{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -783,9 +591,7 @@ footer{
     <li><a href="#projects">Projects</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="mailto:ChristopherJohnDelaPena047@gmail.com" class="nav-cta">
-    Hire Me →
-  </a>
+  <a href="mailto:ChristopherJohnDelaPena047@gmail.com" class="nav-cta">Hire Me →</a>
 </nav>
 
 <!-- ══ HERO ══ -->
@@ -798,15 +604,11 @@ footer{
       <div class="flag">🌏</div>
     </div>
   </div>
-
   <div class="hero-eyebrow">Operations Engineer & Full Stack Developer</div>
-
   <h1>
     Christopher<br/>
     <span class="line2">John <span class="accent">Dela Peña</span></span>
   </h1>
-
-  <!-- CHANGE 1: 10+ -> 11+ in pills -->
   <div class="hero-descriptor">
     <span class="descriptor-pill hl">11+ Years Manufacturing</span>
     <span class="descriptor-pill hl">Licensed Electronics Engineer</span>
@@ -816,23 +618,18 @@ footer{
     <span class="descriptor-pill">SAP Business One</span>
     <span class="descriptor-pill">React · Next.js · Supabase</span>
   </div>
-
   <div class="hero-pitch">
-    <!-- CHANGE 2: 10+ -> 11+ in pitch text -->
     <p>I'm a <strong>rare hybrid professional</strong> — a Licensed Electronics Engineer with 11+ years of manufacturing and supply chain expertise, who also <strong>builds the digital tools</strong> that solve the problems I see on the factory floor every day.</p>
     <p>Based in the Philippines · Actively targeting roles in <strong>Singapore, Australia</strong>, and remote-first global companies. Open to relocation.</p>
   </div>
-
   <div class="hero-stats">
-    <!-- CHANGE 3: 10+ -> 11+ in stats -->
     <div class="stat"><div class="stat-num">11+</div><div class="stat-label">Years Ops</div></div>
     <div class="stat"><div class="stat-num">3</div><div class="stat-label">Key Roles</div></div>
     <div class="stat"><div class="stat-num">2</div><div class="stat-label">PH Licenses</div></div>
     <div class="stat"><div class="stat-num">5</div><div class="stat-label">Live Apps</div></div>
   </div>
-
   <div class="hero-actions">
-    <a href="#projects" class="btn btn-teal">
+    <a href="#projects" class="btn btn-primary">
       <svg viewBox="0 0 24 24"><path d="M13 3L4 14h7v7l9-11h-7V3z"/></svg>
       View Live Projects
     </a>
@@ -853,7 +650,6 @@ footer{
   <div class="value-band-inner">
     <div class="value-item">
       <div class="value-icon">⚙️</div>
-      <!-- CHANGE 4: 10+ -> 11+ in value band -->
       <div class="value-text"><strong>Operations Expert</strong>11+ years in semiconductor & electronics manufacturing</div>
     </div>
     <div class="value-item">
@@ -875,22 +671,16 @@ footer{
 <section id="expertise">
   <div class="section-eyebrow">What I Bring</div>
   <div class="section-title">Dual <span>Expertise</span></div>
-
   <div class="dual-grid reveal">
     <div class="dual-card ops">
       <div class="dual-card-badge badge-ops">⚙️ Operations & Supply Chain</div>
-      <!-- CHANGE 5: 10+ -> 11+ in dual card -->
       <h3>11+ Years on the Factory Floor</h3>
       <p>Deep, proven expertise in production planning, inventory management, and supply chain coordination for semiconductor and electronics manufacturing — the kind of experience that only comes from actually doing it.</p>
       <div class="dual-skills">
-        <span class="skill-tag">Production Planning</span>
-        <span class="skill-tag">Inventory Control</span>
-        <span class="skill-tag">SAP Business One</span>
-        <span class="skill-tag">Supply Chain</span>
-        <span class="skill-tag">KPI Management</span>
-        <span class="skill-tag">Power BI</span>
-        <span class="skill-tag">Excel (Expert)</span>
-        <span class="skill-tag">Supplier Relations</span>
+        <span class="skill-tag">Production Planning</span><span class="skill-tag">Inventory Control</span>
+        <span class="skill-tag">SAP Business One</span><span class="skill-tag">Supply Chain</span>
+        <span class="skill-tag">KPI Management</span><span class="skill-tag">Power BI</span>
+        <span class="skill-tag">Excel (Expert)</span><span class="skill-tag">Supplier Relations</span>
         <span class="skill-tag">Team Leadership</span>
       </div>
     </div>
@@ -899,19 +689,14 @@ footer{
       <h3>Building Tools That Actually Work</h3>
       <p>I don't just identify problems in operations — I build the software to solve them. Every app I've shipped comes from a real workflow pain point I've personally experienced in manufacturing environments.</p>
       <div class="dual-skills">
-        <span class="skill-tag">React</span>
-        <span class="skill-tag">Next.js</span>
-        <span class="skill-tag">Supabase</span>
-        <span class="skill-tag">PostgreSQL</span>
-        <span class="skill-tag">Vite</span>
-        <span class="skill-tag">Vercel</span>
-        <span class="skill-tag">TypeScript</span>
-        <span class="skill-tag">REST APIs</span>
+        <span class="skill-tag">React</span><span class="skill-tag">Next.js</span>
+        <span class="skill-tag">Supabase</span><span class="skill-tag">PostgreSQL</span>
+        <span class="skill-tag">Vite</span><span class="skill-tag">Vercel</span>
+        <span class="skill-tag">TypeScript</span><span class="skill-tag">REST APIs</span>
         <span class="skill-tag">Git / GitHub</span>
       </div>
     </div>
   </div>
-
   <div class="skills-bento reveal">
     <div class="skill-card"><div class="skill-icon">🏭</div><div class="skill-name">Semiconductor Manufacturing</div><div class="skill-desc">Direct experience in semiconductor peripherals and electronics components production across multiple process types.</div></div>
     <div class="skill-card"><div class="skill-icon">📦</div><div class="skill-name">End-to-End Order Management</div><div class="skill-desc">Full lifecycle tracking from raw material procurement through supplier delivery, production, and finished goods dispatch.</div></div>
@@ -954,7 +739,6 @@ footer{
   <div class="section-eyebrow">Career History</div>
   <div class="section-title">Work <span>Experience</span></div>
   <div class="exp-timeline">
-
     <div class="exp-item reveal">
       <div class="exp-left">
         <div class="exp-period">Present · 5.5 Years</div>
@@ -971,15 +755,12 @@ footer{
           <li>Support production performance monitoring and workforce efficiency tracking</li>
         </ul>
         <div class="exp-tags">
-          <span class="exp-tag">SAP Business One</span>
-          <span class="exp-tag">Inventory Control</span>
-          <span class="exp-tag">Supplier KPI</span>
-          <span class="exp-tag">Production Planning</span>
+          <span class="exp-tag">SAP Business One</span><span class="exp-tag">Inventory Control</span>
+          <span class="exp-tag">Supplier KPI</span><span class="exp-tag">Production Planning</span>
           <span class="exp-tag">Semiconductor</span>
         </div>
       </div>
     </div>
-
     <div class="exp-item reveal">
       <div class="exp-left">
         <div class="exp-period">5 Years</div>
@@ -994,13 +775,11 @@ footer{
           <li>Monitored status of all active sales orders to ensure complete, on-time delivery performance</li>
         </ul>
         <div class="exp-tags">
-          <span class="exp-tag">Sales Order Management</span>
-          <span class="exp-tag">Capacity Planning</span>
+          <span class="exp-tag">Sales Order Management</span><span class="exp-tag">Capacity Planning</span>
           <span class="exp-tag">Cross-department Coordination</span>
         </div>
       </div>
     </div>
-
     <div class="exp-item reveal">
       <div class="exp-left">
         <div class="exp-period">5 Years</div>
@@ -1016,15 +795,12 @@ footer{
           <li>Managed workforce assignments and workload allocation to maximize daily goal attainment</li>
         </ul>
         <div class="exp-tags">
-          <span class="exp-tag">Production Supervision</span>
-          <span class="exp-tag">Team Leadership</span>
-          <span class="exp-tag">Process Management</span>
-          <span class="exp-tag">Cross-functional Coordination</span>
+          <span class="exp-tag">Production Supervision</span><span class="exp-tag">Team Leadership</span>
+          <span class="exp-tag">Process Management</span><span class="exp-tag">Cross-functional Coordination</span>
           <span class="exp-tag">Workforce Planning</span>
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -1035,9 +811,8 @@ footer{
   <div class="section-eyebrow">Live Deployed Work</div>
   <div class="section-title">Project <span>Portfolio</span></div>
   <div class="projects-grid">
-
     <div class="project-card hero-project reveal">
-      <div class="project-banner banner-teal">✦ New · 2025</div>
+      <div class="project-banner banner-blue">✦ New · 2025</div>
       <div class="project-body">
         <div class="project-emoji">🗂️</div>
         <div class="project-name">Job Order System</div>
@@ -1046,21 +821,18 @@ footer{
           <div class="ps-row"><span class="ps-label ps-solution">Solution</span><span class="ps-text">Unified web-based JO system with BOM tracking, live stock computation, JO type color-coding, and a Supabase-backed database — built with Next.js and deployed on Vercel.</span></div>
         </div>
         <div class="project-tags">
-          <span class="ptag ptag-teal">Next.js</span>
-          <span class="ptag ptag-teal">Supabase</span>
-          <span class="ptag ptag-blue">PostgreSQL</span>
-          <span class="ptag ptag-teal">Vercel</span>
+          <span class="ptag ptag-blue">Next.js</span><span class="ptag ptag-blue">Supabase</span>
+          <span class="ptag ptag-blue">PostgreSQL</span><span class="ptag ptag-blue">Vercel</span>
           <span class="ptag ptag-green">Live</span>
         </div>
       </div>
       <div class="project-footer">
         <a href="https://job-order-system-2pt7.vercel.app/" target="_blank" class="project-link">Visit Live App →</a>
-        <span class="new-badge nb-teal">✦ New</span>
+        <span class="new-badge nb-blue">✦ New</span>
       </div>
     </div>
-
     <div class="project-card hero-project reveal">
-      <div class="project-banner banner-teal">✦ Featured · 2025</div>
+      <div class="project-banner banner-blue">✦ Featured · 2025</div>
       <div class="project-body">
         <div class="project-emoji">📋</div>
         <div class="project-name">Order Tracking List</div>
@@ -1069,18 +841,15 @@ footer{
           <div class="ps-row"><span class="ps-label ps-solution">Solution</span><span class="ps-text">Role-based system with 4 user roles (Admin, Planner, Logistics, Inventory), 17-field order management, field-level permissions, and CSV export with live date alerts.</span></div>
         </div>
         <div class="project-tags">
-          <span class="ptag ptag-teal">React</span>
-          <span class="ptag ptag-teal">Vite</span>
-          <span class="ptag ptag-teal">Vercel</span>
-          <span class="ptag ptag-green">Live</span>
+          <span class="ptag ptag-blue">React</span><span class="ptag ptag-blue">Vite</span>
+          <span class="ptag ptag-blue">Vercel</span><span class="ptag ptag-green">Live</span>
         </div>
       </div>
       <div class="project-footer">
         <a href="https://order-tracking-list.vercel.app/" target="_blank" class="project-link">Visit Live App →</a>
-        <span class="new-badge nb-teal">✦ 2025</span>
+        <span class="new-badge nb-blue">✦ 2025</span>
       </div>
     </div>
-
     <div class="project-card reveal">
       <div class="project-banner banner-amber">✦ Featured · 2025</div>
       <div class="project-body">
@@ -1091,10 +860,8 @@ footer{
           <div class="ps-row"><span class="ps-label ps-solution">Solution</span><span class="ps-text">Full 7-step procurement platform with role-based access for 5 teams, BOM triage, price tables, and a supplier negotiation loop.</span></div>
         </div>
         <div class="project-tags">
-          <span class="ptag ptag-teal">React</span>
-          <span class="ptag ptag-teal">Supabase</span>
-          <span class="ptag ptag-teal">Vercel</span>
-          <span class="ptag ptag-amber">7-Step Flow</span>
+          <span class="ptag ptag-blue">React</span><span class="ptag ptag-blue">Supabase</span>
+          <span class="ptag ptag-blue">Vercel</span><span class="ptag ptag-amber">7-Step Flow</span>
           <span class="ptag ptag-green">Live</span>
         </div>
       </div>
@@ -1103,7 +870,6 @@ footer{
         <span class="new-badge nb-amber">Featured</span>
       </div>
     </div>
-
     <div class="project-card reveal">
       <div class="project-body">
         <div class="project-emoji">🛒</div>
@@ -1113,8 +879,7 @@ footer{
           <div class="ps-row"><span class="ps-label ps-solution">Solution</span><span class="ps-text">Centralised procurement web app for purchase orders, supplier tracking, and procurement workflows — built from real supply chain experience.</span></div>
         </div>
         <div class="project-tags">
-          <span class="ptag ptag-teal">React</span>
-          <span class="ptag ptag-teal">Supabase</span>
+          <span class="ptag ptag-blue">React</span><span class="ptag ptag-blue">Supabase</span>
           <span class="ptag ptag-green">Live</span>
         </div>
       </div>
@@ -1122,7 +887,6 @@ footer{
         <a href="https://procureflow-e2htxyila-torz047s-projects.vercel.app/" target="_blank" class="project-link">Visit Live App →</a>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -1147,32 +911,32 @@ footer{
       <div class="edu-degree">🇵🇭 Filipino / Tagalog — Native<br/>🇬🇧 English — Proficient (Professional)</div>
       <div style="margin-top:20px;padding-top:18px;border-top:1px solid var(--border)">
         <div style="font-size:10px;color:var(--text3);letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;font-weight:600">Professional Reference</div>
-        <div style="font-size:14px;font-weight:700;margin-bottom:4px;color:var(--white)">Rhea Bactad</div>
+        <div style="font-size:14px;font-weight:700;margin-bottom:4px;color:var(--text)">Rhea Bactad</div>
         <div style="font-size:12px;color:var(--text2)">Production Planning Supervisor<br/>Nicera Philippines Inc.</div>
-        <div style="font-size:12px;color:var(--teal);margin-top:6px;font-weight:600">+63 917 560 0768</div>
+        <div style="font-size:12px;color:var(--blue);margin-top:6px;font-weight:600">+63 917 560 0768</div>
       </div>
     </div>
     <div class="edu-card">
       <div class="edu-school">Relocation & Work Rights</div>
       <div style="display:flex;flex-direction:column;gap:12px;margin-top:16px">
-        <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(0,212,184,0.06);border:1px solid rgba(0,212,184,0.15);border-radius:8px">
+        <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--blue-dim);border:1px solid rgba(24,95,165,0.15);border-radius:8px">
           <span style="font-size:20px">🇸🇬</span>
           <div>
-            <div style="font-size:12px;font-weight:600;color:var(--white)">Singapore</div>
+            <div style="font-size:12px;font-weight:600;color:var(--text)">Singapore</div>
             <div style="font-size:11px;color:var(--text2)">Open to EP / S Pass · Ready to relocate</div>
           </div>
         </div>
-        <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(0,212,184,0.06);border:1px solid rgba(0,212,184,0.15);border-radius:8px">
+        <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--blue-dim);border:1px solid rgba(24,95,165,0.15);border-radius:8px">
           <span style="font-size:20px">🇦🇺</span>
           <div>
-            <div style="font-size:12px;font-weight:600;color:var(--white)">Australia</div>
+            <div style="font-size:12px;font-weight:600;color:var(--text)">Australia</div>
             <div style="font-size:11px;color:var(--text2)">Open to skilled visa · Ready to relocate</div>
           </div>
         </div>
         <div style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(59,158,255,0.06);border:1px solid rgba(59,158,255,0.15);border-radius:8px">
           <span style="font-size:20px">🌐</span>
           <div>
-            <div style="font-size:12px;font-weight:600;color:var(--white)">Remote Global</div>
+            <div style="font-size:12px;font-weight:600;color:var(--text)">Remote Global</div>
             <div style="font-size:11px;color:var(--text2)">Open to remote-first international roles</div>
           </div>
         </div>
@@ -1214,9 +978,9 @@ footer{
       </a>
       <a href="https://www.linkedin.com/in/christopher-john-dela-pe%C3%B1a-806a082b1" target="_blank" class="contact-card li">
         <div class="cc-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="var(--blue)"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#185FA5"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         </div>
-        <div><div class="cc-label">LinkedIn</div><div class="cc-value" style="color:var(--blue)">Christopher John Dela Peña</div></div>
+        <div><div class="cc-label">LinkedIn</div><div class="cc-value" style="color:#185FA5">Christopher John Dela Peña</div></div>
       </a>
       <div class="contact-card" style="cursor:default">
         <div class="cc-icon">📍</div>
@@ -1231,178 +995,58 @@ footer{
 </footer>
 
 <script>
-/* ── CURSOR ── */
 const cursor = document.getElementById('cursor');
 const ring = document.getElementById('cursorRing');
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove', e => {
-  mx = e.clientX; my = e.clientY;
-  cursor.style.transform = `translate(${mx}px,${my}px) translate(-50%,-50%)`;
+  mx=e.clientX; my=e.clientY;
+  cursor.style.transform=`translate(${mx}px,${my}px) translate(-50%,-50%)`;
 });
 function animateRing(){
-  rx += (mx - rx) * 0.12;
-  ry += (my - ry) * 0.12;
-  ring.style.transform = `translate(${rx}px,${ry}px) translate(-50%,-50%)`;
+  rx+=(mx-rx)*0.12; ry+=(my-ry)*0.12;
+  ring.style.transform=`translate(${rx}px,${ry}px) translate(-50%,-50%)`;
   requestAnimationFrame(animateRing);
 }
 animateRing();
-document.querySelectorAll('a,button,.btn,.skill-card,.project-card,.contact-card,.dual-card').forEach(el => {
-  el.addEventListener('mouseenter', () => {
-    cursor.style.transform += ' scale(1.8)';
-    cursor.style.background = 'var(--amber)';
-    ring.style.width = '52px'; ring.style.height = '52px';
-    ring.style.borderColor = 'rgba(245,158,11,0.5)';
+document.querySelectorAll('a,button,.btn,.skill-card,.project-card,.contact-card,.dual-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{
+    cursor.style.background='var(--amber2)';
+    ring.style.width='52px'; ring.style.height='52px';
+    ring.style.borderColor='rgba(192,124,10,0.4)';
   });
-  el.addEventListener('mouseleave', () => {
-    cursor.style.background = 'var(--teal)';
-    ring.style.width = '36px'; ring.style.height = '36px';
-    ring.style.borderColor = 'rgba(0,212,184,0.5)';
+  el.addEventListener('mouseleave',()=>{
+    cursor.style.background='var(--blue)';
+    ring.style.width='36px'; ring.style.height='36px';
+    ring.style.borderColor='rgba(24,95,165,0.4)';
   });
 });
 
-/* ── SCROLL REVEAL ── */
-const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach((e,i) => {
+const reveals=document.querySelectorAll('.reveal');
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{
     if(e.isIntersecting){
-      setTimeout(() => e.target.classList.add('visible'), i * 80);
+      setTimeout(()=>e.target.classList.add('visible'),i*80);
       observer.unobserve(e.target);
     }
   });
-}, { threshold: 0.1 });
-reveals.forEach(el => observer.observe(el));
+},{threshold:0.1});
+reveals.forEach(el=>observer.observe(el));
 
-/* ── RESUME DOWNLOAD ── */
-function downloadResume() {
-  const btn = document.getElementById('dl-btn');
-  const label = document.getElementById('dl-label');
-  btn.disabled = true;
-  label.textContent = 'Generating...';
-  const html = `<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"/>
-<title>Christopher John B. Dela Peña — Resume</title>
-<style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:Georgia,serif;background:#fff;color:#1a202c;max-width:860px;margin:0 auto;padding:40px 48px;font-size:13px}
-  h1{font-size:26px;color:#0a4a6e;letter-spacing:-0.5px;margin-bottom:4px}
-  .subtitle{font-size:13px;color:#2d6a7f;margin-bottom:6px;font-style:italic}
-  .targets{font-size:11px;color:#059669;font-weight:600;margin-bottom:8px;letter-spacing:0.5px}
-  .contact-row{font-size:11.5px;color:#555;margin-bottom:20px;line-height:1.8}
-  .contact-row a{color:#0a4a6e;text-decoration:none}
-  hr{border:none;border-top:2px solid #0a4a6e;margin:18px 0 14px}
-  h2{font-size:12px;text-transform:uppercase;letter-spacing:2px;color:#0a4a6e;margin-bottom:12px;font-family:Arial,sans-serif}
-  .job{margin-bottom:18px}
-  .job-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2px}
-  .job-title{font-weight:bold;font-size:14px;color:#1a202c}
-  .job-period{font-size:11px;color:#777;font-style:italic}
-  .job-company{font-size:12px;color:#2d6a7f;margin-bottom:6px}
-  ul{padding-left:18px;margin-top:4px}
-  li{margin-bottom:4px;line-height:1.6;color:#444}
-  .skills-wrap{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
-  .skill{background:#e6f4f8;color:#0a4a6e;padding:3px 12px;border-radius:12px;font-size:11px}
-  .project{margin-bottom:10px}
-  .project-name{font-weight:bold;color:#1a202c}
-  .project-link{color:#0a4a6e;font-size:11px}
-  .section{margin-bottom:22px}
-  .badge{background:#0a4a6e;color:#fff;font-size:10px;padding:2px 8px;border-radius:10px;margin-left:8px;vertical-align:middle}
-  .target-box{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:6px;padding:8px 14px;margin-bottom:16px;font-size:12px;color:#059669}
-</style>
-</head>
-<body>
-<h1>Christopher John B. Dela Peña <span class="badge">ECE · ECT</span></h1>
-<div class="subtitle">Licensed Electronics Engineer · Production Planning & Supply Chain · Full Stack Developer</div>
-<div class="targets">🇸🇬 Targeting Singapore · 🇦🇺 Targeting Australia · 🌐 Open to Remote Global Roles</div>
-<div class="contact-row">
-  📱 +63 915 518 4727 &nbsp;|&nbsp;
-  ✉️ <a href="mailto:ChristopherJohnDelaPena047@gmail.com">ChristopherJohnDelaPena047@gmail.com</a> &nbsp;|&nbsp;
-  🔗 <a href="https://www.linkedin.com/in/christopher-john-dela-pe%C3%B1a-806a082b1">LinkedIn</a> &nbsp;|&nbsp;
-  📍 Philippines · Open to Relocation
-</div>
-<div class="target-box">✅ Actively seeking international opportunities · Available for interviews · Open to Singapore EP/S Pass and Australian skilled visa sponsorship</div>
-<hr/>
-<div class="section">
-<h2>Professional Summary</h2>
-<p style="font-size:13px;color:#444;line-height:1.7;margin-bottom:0">Rare hybrid professional combining 11+ years of semiconductor manufacturing and supply chain expertise with full stack web development skills. Licensed Electronics Engineer with a proven track record of building and deploying real operational tools. Seeking international roles in Singapore or Australia where I can apply both operational insight and technical execution.</p>
-</div>
-<hr/>
-<div class="section">
-<h2>Work Experience</h2>
-<div class="job">
-  <div class="job-header"><span class="job-title">Production & Inventory Control Planner</span><span class="job-period">Present · ~5.5 Years</span></div>
-  <div class="job-company">Enplas Semiconductor Peripherals Inc. · Philippines</div>
-  <ul>
-    <li>Monitor customer orders end-to-end from raw material procurement to finished goods delivery</li>
-    <li>Ensure material availability through coordinated purchasing and supplier management</li>
-    <li>Validate supplier efficiency through KPIs and on-site visits</li>
-    <li>Maintain records in SAP Business One, Meslink, and other enterprise tools</li>
-  </ul>
-</div>
-<div class="job">
-  <div class="job-header"><span class="job-title">Production Planner</span><span class="job-period">5 Years</span></div>
-  <div class="job-company">Nicera Philippines Inc.</div>
-  <ul>
-    <li>Confirmed sales orders and coordinated across all departments for on-time delivery</li>
-    <li>Created production plans optimized for delivery schedules and resource utilization</li>
-    <li>Aligned plans with raw material arrivals; monitored all active orders</li>
-  </ul>
-</div>
-<div class="job">
-  <div class="job-header"><span class="job-title">Production Supervisor / Group Leader</span><span class="job-period">5 Years</span></div>
-  <div class="job-company">Nicera Philippines Inc.</div>
-  <ul>
-    <li>Supervised daily production operations across multiple lines, ensuring targets and quality standards were consistently met</li>
-    <li>Led and developed production group leaders and line workers, driving performance improvements and cross-training</li>
-    <li>Resolved production abnormalities and coordinated with planning, quality, and engineering departments</li>
-    <li>Managed workforce assignments and workload allocation to maximize daily goal attainment</li>
-  </ul>
-</div>
-</div>
-<hr/>
-<div class="section">
-<h2>Skills & Tools</h2>
-<div class="skills-wrap">
-  <span class="skill">Production Planning</span><span class="skill">Inventory Control</span>
-  <span class="skill">SAP Business One</span><span class="skill">Excel (Expert)</span>
-  <span class="skill">Power BI</span><span class="skill">Supply Chain Mgmt</span>
-  <span class="skill">React</span><span class="skill">Next.js</span><span class="skill">Supabase</span>
-  <span class="skill">PostgreSQL</span><span class="skill">Vercel</span><span class="skill">TypeScript</span>
-  <span class="skill">Team Leadership</span><span class="skill">Cross-functional Coordination</span>
-</div>
-</div>
-<hr/>
-<div class="section">
-<h2>Live Projects (Deployed)</h2>
-<div class="project"><span class="project-name">Job Order System (2025)</span> — Next.js + Supabase JO system with BOM tracking, live stock computation, color-coded JO types.<br/><a class="project-link" href="https://job-order-system-2pt7.vercel.app/">https://job-order-system-2pt7.vercel.app/</a></div>
-<div class="project"><span class="project-name">Order Tracking List (2025)</span> — Role-based order tracking, 4 roles, 17 fields, CSV export, live alerts.<br/><a class="project-link" href="https://order-tracking-list.vercel.app/">https://order-tracking-list.vercel.app/</a></div>
-<div class="project"><span class="project-name">ProcurementFlow (2025)</span> — 7-step procurement system, 5 teams, role-based access, supplier negotiation.<br/><a class="project-link" href="https://procurementflow-qe6aifhc6-torz047s-projects.vercel.app/">https://procurementflow-qe6aifhc6-torz047s-projects.vercel.app/</a></div>
-</div>
-<hr/>
-<div class="section">
-<h2>Education & Licences</h2>
-<div style="display:flex;justify-content:space-between;align-items:baseline">
-  <div><strong>Bachelor of Science in Electronics Engineering</strong><br/><span style="color:#2d6a7f">Bataan Peninsula State University</span><br/><span style="font-size:11px;color:#777">Licensed Electronics Engineer (ECE) · Licensed Electronics Technician (ECT)</span></div>
-  <div style="font-size:11px;color:#777;text-align:right">2009 – 2013</div>
-</div>
-</div>
-<hr/>
-<div class="section">
-<h2>Languages & Reference</h2>
-<p>🇵🇭 Filipino — Native &nbsp;|&nbsp; 🇬🇧 English — Proficient (Professional)</p>
-<p style="margin-top:8px"><strong>Reference:</strong> Rhea Bactad · Production Planning Supervisor · Nicera Philippines · +63 917 560 0768</p>
-</div>
-</body></html>`;
-  try {
-    const blob = new Blob([html],{type:'text/html'});
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href=url; a.download='CJ_DelaPena_Resume_International.html';
+function downloadResume(){
+  const btn=document.getElementById('dl-btn');
+  const label=document.getElementById('dl-label');
+  btn.disabled=true; label.textContent='Generating...';
+  const html=`<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><title>Christopher John B. Dela Peña — Resume</title><style>*{box-sizing:border-box;margin:0;padding:0}body{font-family:Georgia,serif;background:#fff;color:#1a202c;max-width:860px;margin:0 auto;padding:40px 48px;font-size:13px}h1{font-size:26px;color:#0a4a6e;letter-spacing:-0.5px;margin-bottom:4px}.subtitle{font-size:13px;color:#2d6a7f;margin-bottom:6px;font-style:italic}.targets{font-size:11px;color:#059669;font-weight:600;margin-bottom:8px;letter-spacing:0.5px}.contact-row{font-size:11.5px;color:#555;margin-bottom:20px;line-height:1.8}.contact-row a{color:#0a4a6e;text-decoration:none}hr{border:none;border-top:2px solid #0a4a6e;margin:18px 0 14px}h2{font-size:12px;text-transform:uppercase;letter-spacing:2px;color:#0a4a6e;margin-bottom:12px;font-family:Arial,sans-serif}.job{margin-bottom:18px}.job-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:2px}.job-title{font-weight:bold;font-size:14px;color:#1a202c}.job-period{font-size:11px;color:#777;font-style:italic}.job-company{font-size:12px;color:#2d6a7f;margin-bottom:6px}ul{padding-left:18px;margin-top:4px}li{margin-bottom:4px;line-height:1.6;color:#444}.skills-wrap{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}.skill{background:#e6f4f8;color:#0a4a6e;padding:3px 12px;border-radius:12px;font-size:11px}.project{margin-bottom:10px}.project-name{font-weight:bold;color:#1a202c}.project-link{color:#0a4a6e;font-size:11px}.section{margin-bottom:22px}.badge{background:#0a4a6e;color:#fff;font-size:10px;padding:2px 8px;border-radius:10px;margin-left:8px;vertical-align:middle}.target-box{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:6px;padding:8px 14px;margin-bottom:16px;font-size:12px;color:#059669}</style></head><body><h1>Christopher John B. Dela Peña <span class="badge">ECE · ECT</span></h1><div class="subtitle">Licensed Electronics Engineer · Production Planning & Supply Chain · Full Stack Developer</div><div class="targets">🇸🇬 Targeting Singapore · 🇦🇺 Targeting Australia · 🌐 Open to Remote Global Roles</div><div class="contact-row">📱 +63 915 518 4727 &nbsp;|&nbsp; ✉️ <a href="mailto:ChristopherJohnDelaPena047@gmail.com">ChristopherJohnDelaPena047@gmail.com</a> &nbsp;|&nbsp; 🔗 <a href="https://www.linkedin.com/in/christopher-john-dela-pe%C3%B1a-806a082b1">LinkedIn</a> &nbsp;|&nbsp; 📍 Philippines · Open to Relocation</div><div class="target-box">✅ Actively seeking international opportunities · Available for interviews · Open to Singapore EP/S Pass and Australian skilled visa sponsorship</div><hr/><div class="section"><h2>Professional Summary</h2><p style="font-size:13px;color:#444;line-height:1.7">Rare hybrid professional combining 11+ years of semiconductor manufacturing and supply chain expertise with full stack web development skills. Licensed Electronics Engineer with a proven track record of building and deploying real operational tools.</p></div><hr/><div class="section"><h2>Work Experience</h2><div class="job"><div class="job-header"><span class="job-title">Production & Inventory Control Planner</span><span class="job-period">Present · ~5.5 Years</span></div><div class="job-company">Enplas Semiconductor Peripherals Inc. · Philippines</div><ul><li>Monitor customer orders end-to-end from raw material procurement to finished goods delivery</li><li>Ensure material availability through coordinated purchasing and supplier management</li><li>Validate supplier efficiency through KPIs and on-site visits</li><li>Maintain records in SAP Business One, Meslink, and other enterprise tools</li></ul></div><div class="job"><div class="job-header"><span class="job-title">Production Planner</span><span class="job-period">5 Years</span></div><div class="job-company">Nicera Philippines Inc.</div><ul><li>Confirmed sales orders and coordinated across all departments for on-time delivery</li><li>Created production plans optimized for delivery schedules and resource utilization</li></ul></div><div class="job"><div class="job-header"><span class="job-title">Production Supervisor / Group Leader</span><span class="job-period">5 Years</span></div><div class="job-company">Nicera Philippines Inc.</div><ul><li>Supervised daily production operations across multiple lines</li><li>Led and developed production group leaders and line workers</li><li>Coordinated with planning, quality, and engineering departments</li></ul></div></div><hr/><div class="section"><h2>Skills & Tools</h2><div class="skills-wrap"><span class="skill">Production Planning</span><span class="skill">Inventory Control</span><span class="skill">SAP Business One</span><span class="skill">Excel (Expert)</span><span class="skill">Power BI</span><span class="skill">React</span><span class="skill">Next.js</span><span class="skill">Supabase</span><span class="skill">PostgreSQL</span><span class="skill">TypeScript</span></div></div><hr/><div class="section"><h2>Education & Licences</h2><strong>Bachelor of Science in Electronics Engineering</strong><br/><span style="color:#2d6a7f">Bataan Peninsula State University · 2009–2013</span><br/><span style="font-size:11px;color:#777">Licensed Electronics Engineer (ECE) · Licensed Electronics Technician (ECT)</span></div></body></html>`;
+  try{
+    const blob=new Blob([html],{type:'text/html'});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');
+    a.href=url; a.download='CJ_DelaPena_Resume.html';
     document.body.appendChild(a); a.click();
     document.body.removeChild(a); URL.revokeObjectURL(url);
-    label.textContent = 'Downloaded! ✓';
-    setTimeout(()=>{ label.textContent='Download Resume'; btn.disabled=false; },3000);
-  } catch(e){ label.textContent='Download Resume'; btn.disabled=false; }
+    label.textContent='Downloaded! ✓';
+    setTimeout(()=>{label.textContent='Download Resume';btn.disabled=false;},3000);
+  }catch(e){label.textContent='Download Resume';btn.disabled=false;}
 }
 </script>
 </body>
